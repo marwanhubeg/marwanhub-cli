@@ -4,13 +4,13 @@
   "description": "أداة سطر أوامر رسمية لـ Marwan Hub - واجهة موحدة لجميع الخدمات",
   "main": "bin/cli.js",
   "bin": {
-    "mh": "bin/cli.js",
-    "marwanhub": "bin/cli.js"
+    "mh": "./bin/cli.js",
+    "marwanhub": "./bin/cli.js"
   },
   "scripts": {
     "start": "node bin/cli.js",
-    "test": "jest",
-    "dev": "node --watch bin/cli.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node bin/cli.js"
   },
   "keywords": [
     "cli",
@@ -25,7 +25,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marwanhubeg/marwanhub-cli.git"
+    "url": "https://github.com/marwanhubeg/marwanhub-cli"
   },
   "homepage": "https://marwanhub.tech",
   "bugs": {
@@ -34,17 +34,9 @@
   "engines": {
     "node": ">=14.0.0"
   },
-  "directories": {
-    "doc": "docs",
-    "example": "examples",
-    "test": "tests"
-  },
-  "type": "commonjs",
   "dependencies": {
-    "chalk": "^5.6.2",
     "commander": "^14.0.2",
-    "dotenv": "^17.2.3",
-    "figlet": "^1.9.4"
+    "dotenv": "^17.2.3"
   },
   "devDependencies": {
     "eslint": "^9.39.2",

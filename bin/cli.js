@@ -2,7 +2,7 @@
 
 const { program } = require('commander');
 const { version } = require('../package.json');
-const chalk = require('chalk');
+const colors = require('../utils/colors');
 
 // استيراد الأوامر الجديدة
 const { 
@@ -12,7 +12,7 @@ const {
 } = require('../src/commands/newCommands');
 
 // رسالة الترحيب
-console.log(chalk.green(`
+console.log(colors.title(`
 ╔═══════════════════════════════════════════╗
 ║      🚀 Marwan Hub CLI - الإصدار ${version}     ║
 ║     أداة سطر أوامر رسمية لـ ماروان هوب     ║
@@ -36,7 +36,7 @@ program
   .alias('help')
   .description('عرض رسالة المساعدة بالعربية')
   .action(() => {
-    console.log(chalk.blue(`
+    console.log(colors.info(`
 📖 مساعدة Marwan Hub CLI:
 
 أوامر أساسية:
@@ -66,7 +66,7 @@ program
   .command('مشاريع')
   .description('عرض مشاريع ماروان هوب على GitHub')
   .action(() => {
-    console.log(chalk.yellow(`
+    console.log(colors.warning(`
 📂 مشاريع ماروان هوب:
 
 1. marwanhub-cli (هذا المشروع)
@@ -90,7 +90,7 @@ program
   .command('خدمات')
   .description('عرض خدمات ماروان هوب')
   .action(() => {
-    console.log(chalk.green(`
+    console.log(colors.success(`
 🛠️ خدمات ماروان هوب:
 
 1. تطوير البرمجيات

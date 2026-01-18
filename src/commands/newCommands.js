@@ -1,11 +1,11 @@
 const { Command } = require('commander');
-const chalk = require('chalk');
+const colors = require('../../utils/colors');
 
 // أمر تحديث المشروع
 const updateCommand = new Command('تحديث')
   .description('تحديث MarwanHub CLI لأحدث إصدار')
   .action(() => {
-    console.log(chalk.blue(`
+    console.log(colors.info(`
 🔄 جاري تحديث MarwanHub CLI...
 
 1. تحميل أحدث الإصدار...
@@ -24,7 +24,7 @@ const updateCommand = new Command('تحديث')
 const toolsCommand = new Command('أدوات')
   .description('عرض الأدوات والتقنيات المستخدمة في ماروان هوب')
   .action(() => {
-    console.log(chalk.green(`
+    console.log(colors.success(`
 🛠️ الأدوات والتقنيات في ماروان هوب:
 
 1. لغات البرمجة:
@@ -59,7 +59,7 @@ const toolsCommand = new Command('أدوات')
 const contactCommand = new Command('تواصل')
   .description('طرق التواصل مع فريق ماروان هوب')
   .action(() => {
-    console.log(chalk.yellow(`
+    console.log(colors.warning(`
 📞 طرق التواصل مع ماروان هوب:
 
 1. البريد الإلكتروني:
