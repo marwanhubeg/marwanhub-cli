@@ -2,32 +2,33 @@
 
 const { program } = require('commander');
 const { version } = require('../package.json');
+const chalk = require('chalk');
 
-// إضافة دعم العربية
-require('dotenv').config();
-
-// الألوان في الكونسول
-const colors = {
-  green: '\x1b[32m',
-  blue: '\x1b[34m',
-  yellow: '\x1b[33m',
-  red: '\x1b[31m',
-  reset: '\x1b[0m'
-};
+// استيراد الأوامر الجديدة
+const { 
+  updateCommand, 
+  toolsCommand, 
+  contactCommand 
+} = require('../src/commands/newCommands');
 
 // رسالة الترحيب
-console.log(`${colors.green}
+console.log(chalk.green(`
 ╔═══════════════════════════════════════════╗
 ║      🚀 Marwan Hub CLI - الإصدار ${version}     ║
 ║     أداة سطر أوامر رسمية لـ ماروان هوب     ║
 ╚═══════════════════════════════════════════╝
-${colors.reset}`);
+`));
 
-// إعداد Commander
+// إعداد Commander الأساسي
 program
   .name('mh')
   .description('أداة سطر أوامر لـ Marwan Hub - واجهة موحدة لجميع الخدمات')
   .version(version);
+
+// إضافة الأوامر الجديدة
+program.addCommand(updateCommand);
+program.addCommand(toolsCommand);
+program.addCommand(contactCommand);
 
 // أمر المساعدة العربية
 program
@@ -35,7 +36,7 @@ program
   .alias('help')
   .description('عرض رسالة المساعدة بالعربية')
   .action(() => {
-    console.log(`${colors.blue}
+    console.log(chalk.blue(`
 📖 مساعدة Marwan Hub CLI:
 
 أوامر أساسية:
@@ -43,6 +44,7 @@ program
   mh خدمات         - عرض الخدمات المتاحة
   mh أدوات         - الأدوات والتقنيات
   mh تحديث         - تحديث الأداة لأحدث إصدار
+  mh تواصل         - طرق التواصل مع الفريق
 
 أوامر التطوير:
   mh جديد <اسم>    - إنشاء مشروع جديد
@@ -56,7 +58,7 @@ program
 
 📞 للتواصل: support@marwanhub.tech
 🌐 الموقع: https://marwanhub.tech
-${colors.reset}`);
+`));
   });
 
 // أمر عرض المشاريع
@@ -64,7 +66,7 @@ program
   .command('مشاريع')
   .description('عرض مشاريع ماروان هوب على GitHub')
   .action(() => {
-    console.log(`${colors.yellow}
+    console.log(chalk.yellow(`
 📂 مشاريع ماروان هوب:
 
 1. marwanhub-cli (هذا المشروع)
@@ -80,7 +82,7 @@ program
    - قيد التطوير...
 
 ⭐ تابعونا على GitHub للمزيد!
-${colors.reset}`);
+`));
   });
 
 // أمر عرض الخدمات
@@ -88,7 +90,7 @@ program
   .command('خدمات')
   .description('عرض خدمات ماروان هوب')
   .action(() => {
-    console.log(`${colors.green}
+    console.log(chalk.green(`
 🛠️ خدمات ماروان هوب:
 
 1. تطوير البرمجيات
@@ -108,7 +110,7 @@ program
    - محتوى ترفيهي تقني
 
 📞 للاستفسارات: info@marwanhub.tech
-${colors.reset}`);
+`));
   });
 
 // إذا لم يتم إدخال أمر
